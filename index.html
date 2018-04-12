@@ -407,6 +407,7 @@
         case 78: return ctrl ? 'c-n' : 'n';
         case 80: return ctrl ? 'c-p' : 'n';
         case 91: return 'super';
+        case 224: return 'meta';
       }
     },
   };
@@ -503,7 +504,9 @@
     }
 
     _handleKeydown(e) {
-      if ($.key(e) === 'escape') this.toggle(false);
+      if ($.key(e) === 'escape') {
+        this.toggle(false);
+      }
     }
 
     _registerEvents() {
@@ -934,6 +937,7 @@
         case 'shift':
         case 'super': return;
         case 'escape': this.hide(); return;
+        case 'meta': return;
       }
 
       this.show();
